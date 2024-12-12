@@ -1,0 +1,10 @@
+<div *ngIf="pokemon" class="center">
+    <h2>Page d'édition de {{pokemon.name}}</h2>
+    <p class="center">
+        <img [src]="pokemon.picture">
+        <app-pokemon-form [pokemon]="pokemon"></app-pokemon-form>
+    </p>
+</div>
+<div *ngIf="!pokemon" class="center">
+    <app-loader></app-loader>
+</div>

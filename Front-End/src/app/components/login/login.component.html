@@ -1,0 +1,23 @@
+<div class='row'>
+    <div class="col s12 m4 offset-m4">
+        <div class="card">
+            <div class="card-content center">
+                <span class="cardTitle">Page de connexion</span>
+                    <p id="messageElement">{{message}}</p>
+                <form #loginForm="ngForm" (keyup.enter)="login()">
+                    <div>
+                        <label for="identifiant">Identifiant</label>
+                        <input type="text" id="identifiant" [(ngModel)]="identifiant" name="identifiant" required>
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                    </div>
+                </form>
+                <div class="card-action center">
+                    <a (click)="login()" class="waves-effect waves-light btn"  *ngIf="!auth.isLoggedIn">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

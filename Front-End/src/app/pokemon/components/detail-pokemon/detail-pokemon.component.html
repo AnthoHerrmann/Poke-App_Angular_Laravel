@@ -1,0 +1,48 @@
+<div *ngIf="currentPkmn" class="row">
+    <div class="col s12 m8 offset-m2">
+        <h2 class="header center">{{currentPkmn.name}}</h2>
+        <div class="card horizontal hoverable">
+            <div class="card-image">
+                <img [src]="currentPkmn.picture">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <table class="bordered striped">
+                        <tbody>
+                            <tr>
+                                <td>Nom</td>
+                                <td><strong>{{currentPkmn.name}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Points de vie</td>
+                                <td><strong>{{currentPkmn.hp}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Dégâts</td>
+                                <td><strong>{{currentPkmn.dmg}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Types</td>
+                                <td>
+                                    <span *ngFor="let type of currentPkmn.types" class="{{type | colorTypePokemon}}">{{type}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date de création</td>
+                                <td><em>{{currentPkmn.created | date:"dd/MM/yyyy"}}</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-action">
+                    <a (click)="goToPokemonList()">Retour</a>
+                    <a (click)="goToEditPokemon(currentPkmn)">Éditer</a>
+                    <a (click)="deletePokemon(currentPkmn)">Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf='!currentPkmn' class="center">
+    <app-loader></app-loader>
+</div>

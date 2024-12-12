@@ -1,0 +1,16 @@
+.ng-valid[required] {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #CB1010;
+}
+
+.chip {
+    width: 70px;
+    text-align: center;
+}
+
+.actionButton {
+    margin: 0 10px;
+}
